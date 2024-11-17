@@ -1006,21 +1006,21 @@ img {
     width: 33.5%;
     height: 50vh;
     background-size: cover;
-    bottom: -4rem !important;
+    bottom: -2rem !important;
     left: 1%;
     object-fit: cover;
     opacity: 0;
     animation: moveUpFirst 2s ease-in-out 0s forwards, rotateLeftRight 4s ease-in-out 2s infinite;
 }
 .pt-3{
-    padding-top: 3rem;
+    padding-top: 5rem;
 }
 .bottom__left_secend {
     position: absolute;
     width: 30%;
     height: 50vh;
     background-size: cover;
-    bottom: -4rem !important;
+    bottom: -2rem !important;
     object-fit: cover;
     left: 31.5%;
     /* دقیقاً وسط صفحه قرار گرفتن */
@@ -1034,7 +1034,7 @@ img {
     height: 50vh;
     /* background-color: red; */
     background-size: cover;
-    bottom: -7rem !important;
+    bottom: -5rem !important;
     right: -2rem;
     padding-left: 6rem;
     opacity: 0;
