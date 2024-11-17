@@ -1,0 +1,1301 @@
+@font-face {
+    font-family: 'Shekasteh';
+    src: url('font/Shekasteh\ V2.001.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'IranNastaliq';
+    src: url('font/IranNastaliq.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BTraffiBold_0';
+    src: url('font/B\ Traffic\ Bold_0.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* loader */
+
+/* استایل لودر */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* طراحی خود لودر (چرخش دایره‌ای) */
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+/* انیمیشن چرخش */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* وقتی محتوا بارگذاری شود این استایل مخفی می‌شود */
+.content {
+    display: none;
+}
+
+body {
+    height: 100vh;
+    /* تغییر به 100vh */
+    background-color: #ffffff !important;
+    color: #000000;
+    font-family: 'BTraffiBold_0', sans-serif;
+    overflow-x: hidden;
+    /* فقط overflow در محور x را پنهان کنید */
+    overflow-y: hidden;
+    /* overflow در محور y را هم پنهان کنید */
+    text-align: center;
+    max-width: 1000px;
+    position: relative;
+    user-select: none;
+    margin: auto;
+    /* حذف مارجین */
+}
+
+.swiper {
+    width: 100%;
+    height: 100vh;
+    /* تغییر به 100vh */
+
+}
+
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide {
+    /* animation: slideIn 2.5s ease forwards;
+    transform-origin: right; */
+    overflow: hidden;
+}
+
+/* انیمیشن باز شدن مانند در */
+@keyframes slideIn {
+    0% {
+        transform: scaleX(0);
+        /* شروع انیمیشن با عرض صفر */
+        opacity: 0;
+        /* نامرئی */
+    }
+
+    100% {
+        transform: scaleX(1);
+        /* به تدریج بزرگ‌تر می‌شود */
+        opacity: 1;
+        /* واضح می‌شود */
+    }
+}
+
+/* تنظیمات برای اسلایدها */
+
+
+.swiper-slide:nth-child(2) {
+    background-image: url("image/IMG_20241021_142951 (1).jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-color: #F8F8F8 !important;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 45%;
+    /* موقعیت عمودی مرکز */
+    left: 50%;
+    /* موقعیت افقی مرکز */
+    transform: translate(-50%, 50%);
+    /* شروع حرکت از پایین */
+    text-align: center;
+    font-size: 1.6rem;
+    background-color: rgba(255, 255, 255, 0.6);
+    /* نیمه شفاف برای زمینه */
+    padding: 10px;
+    border-radius: 10px;
+    /* گرد کردن گوشه‌ها */
+    font-family: 'IranNastaliq', !important;
+    /* فونت مناسب */
+    opacity: 0;
+    /* شروع با شفافیت صفر */
+    filter: blur(10px);
+    /* شروع با حالت تار */
+    transition: opacity 0.5s ease-in-out, transform 0.7s ease-in-out, filter 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    /* ترتیب عمودی */
+    align-items: flex-end;
+    /* تراز سمت چپ */
+}
+
+
+.text-overlay.animate {
+    animation: slideUpWithFilter 6s forwards;
+    /* انیمیشن حرکت به بالا */
+    /* animation: slideFromBottom 6.5s ease forwards; */
+}
+
+.text-overlay .date {
+    align-self: flex-end;
+    /* تاریخ از سمت راست تراز می‌شود */
+}
+
+@keyframes slideUpWithFilter {
+    0% {
+        opacity: 0;
+        /* شروع با شفافیت صفر */
+        transform: translateY(-500%, 1%);
+        /* شروع از سمت راست */
+        filter: blur(10px);
+        /* شروع با تاری */
+    }
+    100% {
+        opacity: 1;
+        /* رسیدن به شفافیت کامل */
+        transform: translate(-50%, -50%);
+        /* رسیدن به موقعیت اصلی */
+        filter: blur(0);
+        /* حذف تاری */
+    }
+}
+
+.text-overlay span {
+    display: block;
+    /* font-size: 1.5rem; */
+    color: #000;
+    /* رنگ متن */
+}
+
+.date {
+    font-weight: bold;
+    font-size: 1.3rem;
+    font-family: 'IranNastaliq', sans-serif;
+}
+
+.event-time {
+    font-size: 2.5rem;
+    margin-top: -2rem;
+    padding-top: 2rem;
+    display: flex;
+    /* line-height: 2; */
+    flex-direction: row-reverse;
+    justify-content: center;
+    font-family: 'IranNastaliq', sans-serif !important;
+    align-items: center;
+    gap: 10px;
+    /* فاصله بین آیتم‌ها */
+    font-size: 2.1rem;
+    /* سایز فونت */
+    color: #333;
+    /* رنگ متن */
+}
+
+.event-time>span,
+.dinner,
+.separator {
+    font-size: 0.9rem !important;
+    font-family: 'BTraffiBold_0';
+    direction: rtl;
+    font-weight: bold;
+    
+}
+.dinner{
+    text-align: center;
+    padding-right: 1.7rem;
+}
+
+.start-time,
+.end-time {
+    font-weight: 600;
+}
+
+/* .swiper-pagination */
+.swiper-button-next,
+.swiper-button-prev {
+    display: none !important;
+}
+
+/* تنظیمات دارع تایمر */
+/* .autoplay-progress{
+    display: none;
+} */
+.autoplay-progress {
+    position: absolute;
+    right: 16px;
+    bottom: 9%;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--swiper-theme-color);
+}
+
+.autoplay-progress svg {
+    --progress: 0;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    stroke-width: 4px;
+    stroke: var(--swiper-theme-color);
+    fill: none;
+    stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+    stroke-dasharray: 125.6;
+    transform: rotate(-90deg);
+}
+
+.myslider2 {
+    background-image: url("image/IMG_20241021_142951\ \(1\).jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    padding-right: 0.8rem;
+    animation: subtleMove 10s ease-in-out infinite;
+    background-color: #F9F9F9;
+    /* انیمیشن با حرکت ریز و تکرارشونده */
+}
+
+/* .bg_first{
+    background-image: url("image/IMG_20241021_142951\ \(1\).jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    padding-right: 0.8rem;
+    animation: subtleMove 10s ease-in-out infinite;
+} */
+/* اسلایدر اول */
+
+.imgbide {
+    /* background-image: url("image/bride_and_grom\).jpg"); */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    padding-right: 0.8rem;
+    /* animation: subtleMove 1s ease-in-out infinite; */
+}
+
+.myslider__4 {
+    background-image: url("image/IMG_20241021_142951 (1).jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-color: #F7F7F7;
+    animation: subtleMove 10s ease-in-out infinite;
+    /* انیمیشن با حرکت ریز و تکرارشونده */
+}
+
+.location {
+    display: flex;
+    height: 98vh;
+    justify-content: center;
+    align-items: center;
+    font-family: 'IranNastaliq';
+    text-align: center;
+    font-size: 2rem;
+    padding: 0 2rem;
+    /* پدینگ برای مرزبندی متن و کادر */
+    max-width: 20rem;
+    /* عرض متناسب با کادر */
+    white-space: normal;
+    /* اجازه می‌دهد متن در صورت نیاز به خط بعدی برود */
+    word-wrap: break-word;
+    /* اگر متن طولانی باشد، اجازه می‌دهد متن به خط بعدی برود */
+    margin: auto;
+}
+.location.animate{
+    animation:  slideUpWithFilter14 2.5s ease-in-out ;
+    /* animation: slideUpWithFilter 4s forwards !important; */
+}
+
+@keyframes slideUpWithFilter14 {
+    0% {
+        transform: translateY(3000px);
+        opacity: 0;
+    } 
+     50% {
+        transform: translateY(600px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+        /* اندازه اصلی */
+    }
+
+    50% {
+        transform: scale(1.04);
+        /* بزرگ‌تر شدن */
+    }
+
+    100% {
+        transform: scale(1);
+        /* بازگشت به اندازه اصلی */
+    }
+}
+
+/* modal end of slider */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #F8F8F8;
+    justify-content: center;
+    font-family: 'IranNastaliq', !important;
+    align-items: center;
+}
+
+
+.modal-content {
+    background-color: #323232;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    /* margin-top: 0.8rem; */
+}
+
+.modal-content>h2 {
+    padding-bottom: 1rem;
+}
+
+.modal-button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    margin-top: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+}
+
+.bg_img {
+    background-image: url("image/Screenshot_2024-10-28-22-24-16-179_com.miui.videoplayer.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 96vh;
+    position: relative;
+    background-color: white;
+    z-index: 1; /* برای قرار گرفتن تصویر بالای ابر */
+}
+.bg_img.animate{
+    animation: zoomFadeIn 4.7s ease-in-out forwards;
+}
+/* .bg_img_2{
+    background-image: url("Sflowe_btttom738.png");
+    position: absolute;
+    background-size: cover;
+    bottom: 0;
+    width: 100%;
+    height: 20vh;
+} */
+.cloud_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 1;
+    z-index: 2; /* ابر بالای تصویر */
+    animation: cloudFadeOut 5s ease-in-out forwards; /* انیمیشن کنار رفتن ابر */
+}
+
+/* انیمیشن برای ظهور زیبا از وسط */
+@keyframes zoomFadeIn {
+    0% {
+        filter: brightness(1) contrast(1.1) saturate(1.2) blur(7px); /* فیلتر برای زیباتر شدن */
+        transform: scale(0.7); /* اندازه کوچک در شروع */
+        opacity: 0; /* شفافیت صفر در شروع */
+        /* transform: rotate(180deg); */
+        transform: rotate(-180deg);
+    }
+    0% {
+        filter: brightness(0.8) contrast(1.2) saturate(1.3) blur(7px); /* فیلتر برای زیباتر شدن */
+        transform: scale(0.7); /* اندازه کوچک در شروع */
+        opacity: 0; /* شفافیت صفر در شروع */
+    }
+    50% {
+        opacity: 0.8;
+        filter: brightness(0.7) contrast(1.05) saturate(1.1) blur(4px); /* کاهش فیلتر */
+        transform: rotate(6deg);
+        
+    }
+    80%{
+        transform: scale(1.2); /* رسیدن به اندازه اصلی */
+        opacity: 0.9; /* شفافیت کامل */
+        filter: brightness(0.7) contrast(1.04) saturate(1.1) blur(0.5px); /* کاهش فیلتر */
+
+    }
+    100% {
+        transform: scale(0.990); /* رسیدن به اندازه اصلی */
+        opacity: 1; /* شفافیت کامل */
+    }
+}
+
+/* انیمیشن برای کنار رفتن ابر */
+@keyframes cloudFadeOut {
+    0% {
+        opacity: 1; /* ابر در ابتدا کاملا قابل مشاهده است */
+    }
+    100% {
+        opacity: 0; /* ابر ناپدید می‌شود */
+    }
+}
+
+
+.myslider__slideer__3 {
+    background-image: url("image/move\).jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* margin-top: 10rem; */
+    width: 100%;
+    height: 100vh;
+    animation: windMove 10s ease-in-out infinite;
+}
+
+@keyframes windMove {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+        /* حرکت به چپ */
+    }
+
+    100% {
+        transform: translateY(-10px);
+        /* حرکت به راست */
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* کی‌فریم برای حرکت ریز */
+@keyframes subtleMove {
+    0% {
+        transform: scale(1) translate(0, 0);
+        /* حالت اولیه تصویر */
+    }
+
+    50% {
+        transform: scale(1.1) translate(2px, -2px);
+        /* کمی بزرگ‌تر و جابه‌جایی ملایم */
+    }
+
+    100% {
+        transform: scale(1) translate(0, 0);
+        /* بازگشت به حالت اولیه */
+    }
+}
+
+.text_wedding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 10px;
+    padding-top: 3rem;
+    font-size: 2.5rem;
+    font-family: 'IranNastaliq';
+    opacity: 0;
+    transform: translateY(-50px);
+    /* شروع حرکت از بالا */
+    filter: blur(10px);
+    /* شروع با حالت تار */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.text_wedding.animate {
+    animation: fadeInFromTop 5s forwards;
+    /* انیمیشن حرکت از بالا */
+}
+
+@keyframes fadeInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+        /* شروع از بالا */
+        filter: blur(10px);
+        /* شروع با تاری */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        /* رسیدن به موقعیت اصلی */
+        filter: blur(0);
+        /* حذف تاری */
+    }
+}
+
+.swiper-pagination {
+    position: absolute;
+    bottom: 10% !important;
+}
+
+.swiper-pagination-bullet {
+    display: none !important;
+    /* width: 12px !important;
+    height: 10px !important;
+    border-radius: 0.8rem!important; */
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    background-color: #FFF !important;
+}
+
+.slide-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 2rem;
+}
+
+
+
+/* تنظیمات برای تصویرهای پس‌زمینه */
+img {
+    position: absolute;
+    width: 50px;
+    /* اندازه مناسب */
+    height: 50px;
+    /* اندازه مناسب */
+}
+
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.invitation {
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    /* margin-top: -10rem; */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.title {
+    font-family: 'IranNastaliq';
+    font-size: 2.4rem;
+    color: #e74c3c;
+    
+    animation: fadeIn 3s ease-out forwards;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.title.animate {
+    animation: firstsider 1s forwards ease-in-out;
+}
+
+/* .title.animate{
+    
+}
+.initials.animate{
+
+} */
+ .span_top,
+.span_top_down {
+    font-family: 'Shekasteh' !important;
+    font-size: 1.3rem;
+    animation: fadeIn 5s ease-out forwards;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    opacity: 0; /* به طور پیش‌فرض مخفی است */
+}
+
+.span_top.active {
+    opacity: 1; /* وقتی active هستند نمایان می‌شوند */
+    animation: slideInLeft 5s forwards; /* انیمیشن ورود از چپ */
+}
+
+.span_top_down.active {
+    opacity: 1; /* وقتی active هستند نمایان می‌شوند */
+    animation: slideInRight 7s forwards; /* انیمیشن ورود از راست */
+}
+
+/* Add transitions or animations for elements smoothly fading in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%); /* حرکت از سمت چپ */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%); /* حرکت از سمت راست */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes firstsider {
+    0% {
+        opacity: 0;
+        filter: blur(5px);;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+
+.names-container {
+    text-align: center;
+    padding: 60px;
+    background: url('/mnt/data/-2147483648_-210136.jpg') no-repeat center/cover;
+    border-radius: 20px;
+    /* box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2); */
+    position: relative;
+    margin-top: 5rem;
+    /* border: 3px solid rgba(255, 255, 255, 0.7); */
+    /* animation: fadeIn 4s ease-out 4s; */
+    opacity: 1;
+    /* animation-fill-mode: forwards; */
+}
+
+.names {
+    font-size: 2em;
+    color: #333;
+    font-family: "Shekasteh";
+    margin: 0;
+}
+
+/* داره درون */
+.names-container::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 160px;
+    /* background: linear-gradient(145deg, #ffffff, #f9f8f8); */
+    border-radius: 50%;
+    /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); */
+    z-index: -1;
+}
+
+.initials {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    padding: 0 1rem;
+    transform: translateX(-50%);
+    font-size: 2em;
+    width: 35rem;
+    font-family: "Shekasteh" !important;
+    /* color: #7f7f7f; */
+    color: #020202d4;
+}
+
+.initialsfirst {
+    margin-left: 8rem;
+}
+
+
+@keyframes slideFromTop {
+    0% {
+        opacity: 0;
+        margin-left: -1000rem;
+        transform: translateY(-150px); /* حرکت کمی از بالا */
+    } 2% {
+        opacity: 0;
+        margin-left: -980rem;
+        transform: translateY(-150px); /* حرکت کمی از بالا */
+    }
+    3% {
+        opacity: 0;
+        margin-left: -890rem;
+        transform: translateY(-150px); /* حرکت کمی از بالا */
+    }
+    4% {
+        opacity: 0;
+        margin-left: -760rem;
+        transform: translateY(-150px); /* حرکت کمی از بالا */
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 8rem;
+        transition: all 0.5s ease-in-out;
+        transform: translateY(0); /* موقعیت نهایی */
+    }
+}
+
+@keyframes slideFromBottom {
+    0% {
+        opacity: 0;
+        margin-right: -1080rem ;
+        transform: translateY(-150px); /* حرکت کمی از پایین */
+    }
+    100% {
+        opacity: 1;
+        margin-right: 0rem ;
+        transform: translateY(0); /* موقعیت نهایی */
+    }
+}
+
+.initialsfirst.animate {
+    animation: slideFromTop 4.5s ease forwards;
+}
+
+.initialssecent.animate {
+    animation: slideFromBottom 6.5s ease forwards;
+}
+
+  
+.decorative-flower {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background: url('/path-to-flower-icon.png') no-repeat center/cover;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+
+.date {
+    font-family: 'BTraffiBold_0';
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-top: 1rem;
+    margin-bottom: 2.3;
+    animation: fadeIn 5s ease-out 3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+
+.inventtext {
+    font-family: 'BTraffiBold_0' !important;
+    font-size: 1.3rem;
+    vertical-align: middle;
+    color: #34495e;
+    margin-top: -3rem !important;
+    animation-fill-mode: forwards;
+    opacity: 1; /* وقتی active هستند نمایان می‌شوند */
+    animation: slideInRight 5s forwards;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+.inventtext2{
+    font-family: 'BTraffiBold_0' !important;
+    font-size: 1.3rem;
+    vertical-align: middle;
+    color: #34495e;
+    margin-top: -3rem !important;
+    animation-fill-mode: forwards;
+    opacity: 1; /* وقتی active هستند نمایان می‌شوند */
+    opacity: 1; /* وقتی active هستند نمایان می‌شوند */
+    animation: slideInLeft 7s forwards;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.inventtext.animate {
+    opacity: 1; /* وقتی active هستند نمایان می‌شوند */
+    animation: slideInLeft 5s forwards
+}
+
+@keyframes firstsider {
+    0% {
+        opacity: 0;
+        /* شروع با شفافیت صفر */
+        transform: translateY(-120px);
+        /* شروع از بالاتر (120 پیکسل بالای صفحه) */
+        filter: blur(10px);
+        margin-top: -50rem;
+        /* شروع با تاری */
+    }
+
+    60% {
+        opacity: 1;
+        /* شفافیت کامل در 60% انیمیشن */
+        transform: translateY(0);
+        border-radius: 0.9rem;
+        /* رسیدن به موقعیت اصلی */
+        filter: blur(0);
+    }
+
+    80% {
+        transform: translateY(-15px);
+        margin-top: -30rem;
+        /* حرکت جزئی به بالا برای ایجاد حالت پرش */
+    }
+
+    100% {
+        transform: translateY(0);
+        margin-top: 0;
+        /* بازگشت به موقعیت نهایی */
+    }
+}
+
+
+
+.bride_and_grom {
+    width: 100%;
+    height: 100vh;
+}
+
+
+.month {
+    font-size: 1rem;
+    color: #34495e;
+    margin-right: 0.5rem;
+    /* فاصله کمتر بین تاریخ و به صرف شام */
+}
+
+.details {
+    font-size: 1.1rem;
+    color: #34495e;
+    /* margin-top: -1rem; */
+    line-height: 1.8;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    animation: fadeIn 6s ease-out 4s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.time-range {
+    font-size: 1.2rem;
+    color: #34495e;
+    margin: 0.5rem 0;
+    padding-right: 1rem;
+    padding: 0;
+}
+
+.poem {
+    font-family: 'Shekasteh', sans-serif;
+    font-size: 1.3rem;
+    color: #020202;
+    line-height: 2;
+    /* margin-top: -2rem; */
+    animation: fadeIn 7s ease-out 5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.top__left,
+.top__right,
+.bottom__left,
+.bottom__right {
+    position: absolute;
+    width: 50%;
+    height: 50vh;
+    background-size: cover;
+    background-color: #FFFF !important;
+}
+
+.bottom__left_firsr {
+    position: absolute;
+    width: 33.5%;
+    height: 50vh;
+    background-size: cover;
+    bottom: -4rem !important;
+    left: 1%;
+    object-fit: cover;
+    opacity: 0;
+    animation: moveUpFirst 2s ease-in-out 0s forwards, rotateLeftRight 4s ease-in-out 2s infinite;
+}
+.pt-3{
+    padding-top: 3rem;
+}
+.bottom__left_secend {
+    position: absolute;
+    width: 30%;
+    height: 50vh;
+    background-size: cover;
+    bottom: -4rem !important;
+    object-fit: cover;
+    left: 31.5%;
+    /* دقیقاً وسط صفحه قرار گرفتن */
+    opacity: 0;
+    animation: moveUpSecond 2s ease-in-out 2s forwards, rotateUpDown 4s ease-in-out 4s infinite;
+}
+
+.bottom__left_therd {
+    position: absolute;
+    width: 80%;
+    height: 50vh;
+    /* background-color: red; */
+    background-size: cover;
+    bottom: -7rem !important;
+    right: -2rem;
+    padding-left: 6rem;
+    opacity: 0;
+    animation: moveUpThird 2s ease-in-out 4s forwards, rotateRightLeft 4s ease-in-out 6s infinite;
+}
+
+/* انیمیشن بالا آمدن برای تصویر اول */
+@keyframes moveUpFirst {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 0px;
+        opacity: 1;
+    }
+}
+
+/* انیمیشن بالا آمدن برای تصویر دوم */
+@keyframes moveUpSecond {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 0px;
+        opacity: 1;
+    }
+}
+
+/* انیمیشن بالا آمدن برای تصویر سوم */
+@keyframes moveUpThird {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 0px;
+        opacity: 1;
+    }
+}
+
+/* انیمیشن چرخش برای تصویر اول (چرخش به چپ و راست) */
+@keyframes rotateLeftRight {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-4deg);
+        /* چرخش به چپ */
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* انیمیشن چرخش برای تصویر دوم (چرخش بالا و پایین) */
+@keyframes rotateUpDown {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-4deg);
+        /* چرخش به سمت بالا */
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* انیمیشن چرخش برای تصویر سوم (چرخش به راست و چپ) */
+@keyframes rotateRightLeft {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-4deg);
+        /* چرخش به راست */
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.top__left {
+    top: 0;
+    left: 0;
+    animation: swayLeft 4s ease-in-out infinite alternate;
+}
+
+.top__right {
+    right: 0;
+    animation: swayRight 7s ease-in-out infinite alternate;
+}
+
+.bottom__left {
+    bottom: 0;
+    left: 0;
+    /* margin-top: 2.4rem;
+    padding-top: 1.5rem; */
+    animation: floatLeft 5s ease-in-out infinite alternate;
+}
+
+.bottom__right {
+    bottom: 0;
+    /* padding-top: 1.5rem;
+    margin-top: 2.4rem; */
+    right: 0;
+    animation: floatRight 7s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes swayLeft {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-5px) translateY(3px);
+    }
+
+    100% {
+        transform: translateX(3px) translateY(-2px);
+    }
+}
+
+@keyframes swayRight {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(5px) translateY(-3px);
+    }
+
+    100% {
+        transform: translateX(-5px) translateY(2px);
+    }
+}
+
+@keyframes floatLeft {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(-4px) translateY(2px);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateX(2px) translateY(-2px);
+        opacity: 1;
+    }
+}
+
+@keyframes floatRight {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(5px) translateY(-3px);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateX(-5px) translateY(3px);
+        opacity: 1;
+    }
+}
+
+.rotate-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    z-index: 9999;
+    text-align: center;
+    width: 80%;
+}
+
+@media(max-height:500px) {
+    .rotate-message {
+        display: block;
+    }
+}
+
+.close-icon {
+    position: absolute;
+    top: 0;
+    right: 2%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+@media (max-width: 400px) {
+    .details {
+        line-height: 1.5;
+        padding: 0.5rem 0;
+    }
+
+    .invitation {
+        margin-top: 0rem ;
+    }
+}
+
+@media (max-width: 768px) {
+    .text-overlay {
+        font-size: 1rem;
+        /* سایز فونت کوچکتر */
+        padding: 10px;
+        /* padding کمتر */
+    }
+
+    .date {
+        font-size: 0.9rem;
+        /* سایز فونت تاریخ کمتر */
+    }
+
+    .event-time {
+        font-size: 1.4rem;
+        /* سایز فونت زمان کمتر */
+    }
+
+    .separator,
+    .dinner {
+        font-size: 20px;
+
+    }
+
+    .start-time,
+    .end-time {
+        font-size: 1.5rem;
+        /* سایز فونت شروع و پایان کمتر */
+    }
+}
