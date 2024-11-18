@@ -811,7 +811,8 @@ word-wrap: break-word;
 font-weight: 600;
 }
 .initialsfirst {
-    margin-left: 8rem;
+    /* margin-left: 6rem; */
+   font-weight: 600;
 }
 
 
@@ -838,7 +839,7 @@ font-weight: 600;
 
     100% {
         opacity: 1;
-        margin-left: 8rem;
+        margin-left: 6rem;
         transition: all 0.5s ease-in-out;
         transform: translateY(0); /* موقعیت نهایی */
     }
