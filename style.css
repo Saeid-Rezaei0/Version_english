@@ -1,22 +1,24 @@
 @font-face {
     font-family: 'Shekasteh';
-    src: url('font/Shekasteh\ V2.001.ttf') format('truetype');
+    src: url('font/BodoniModa-Italic-VariableFont_opsz\,wght.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'IranNastaliq';
-    src: url('font/IranNastaliq.ttf') format('truetype');
+    src: url('font/BodoniModa-VariableFont_opsz\,wght.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'BTraffiBold_0';
-    src: url('font/B\ Traffic\ Bold_0.ttf') format('truetype');
+    src: url('font/BodoniModa-VariableFont_opsz\,wght\ \(1\).ttf') format('truetype');
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    direction: rtl !important;
+    /* تنظیم چپ به راست بودن  */
 }
 
 /* loader */
@@ -337,7 +339,7 @@ body {
     align-items: center;
     font-family: 'IranNastaliq';
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.3rem;
     padding: 0 2rem;
     /* پدینگ برای مرزبندی متن و کادر */
     max-width: 20rem;
@@ -578,8 +580,8 @@ body {
     height: 100vh;
     padding: 10px;
     padding-top: 3rem;
-    font-size: 2.5rem;
-    font-family: 'IranNastaliq';
+    font-size: 1.8rem;
+    font-family: 'Shekasteh';
     opacity: 0;
     transform: translateY(-50px);
     /* شروع حرکت از بالا */
@@ -794,13 +796,20 @@ img {
     left: 50%;
     padding: 0 1rem;
     transform: translateX(-50%);
-    font-size: 2em;
-    width: 35rem;
-    font-family: "Shekasteh" !important;
+    font-size: 1em;
+    line-height: 2;
+    width: 30rem;
+    font-family: "IranNastaliq" !important;
     /* color: #7f7f7f; */
     color: #020202d4;
 }
-
+.initialssecent{
+font-size: 0.9rem;
+padding-left: 0.8rem;
+padding-right: 0.8rem;
+word-wrap: break-word;
+font-weight: 600;
+}
 .initialsfirst {
     margin-left: 8rem;
 }
