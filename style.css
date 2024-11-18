@@ -331,7 +331,7 @@ body {
     animation: subtleMove 10s ease-in-out infinite;
     /* انیمیشن با حرکت ریز و تکرارشونده */
 }
-
+/*ادرس  */
 .location {
     display: flex;
     height: 98vh;
